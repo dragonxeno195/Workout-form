@@ -4,29 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Registration Form</title>
-<script>
-    function getNextSaturday() {
-        const today = new Date();
-        const daysUntilSaturday = (6 - today.getDay() + 7) % 7;
-        const nextSaturday = new Date(today.getTime() + daysUntilSaturday * 24 * 60 * 60 * 1000);
-        nextSaturday.setHours(0, 0, 0, 0);
-        return nextSaturday.toISOString().split('T')[0];
-    }
-
-    function getNextSunday() {
-        const nextSaturday = new Date(getNextSaturday());
-        const nextSunday = new Date(nextSaturday.getTime() + 24 * 60 * 60 * 1000 * 2);
-        nextSunday.setHours(0, 0, 0, 0);
-        return nextSunday.toISOString().split('T')[0];
-    }
-
-    function setMinMaxDate() {
-        document.getElementById('date').min = getNextSaturday();
-        document.getElementById('date').max = getNextSunday();
-    }
-</script>
 </head>
-<body onload="setMinMaxDate()">
+<body>
 <h1>Registration Form</h1>
 <form action="submit_form.php" method="post">
     <label for="name">Name:</label>
